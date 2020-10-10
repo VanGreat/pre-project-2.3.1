@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User_Page</title>
+</head>
+<body>
+<table border="1" style="background-color: gold">
+    <tbody>
+    <tr style="background-color: silver">
+        <th><h3 th:text="ID"></h3></th>
+        <th><h3 th:text="Name"></h3></th>
+        <th><h3 th:text="Surame"></h3></th>
+        <th><h3 th:text="Activity"></h3></th>
+        <th><h3 th:text="Country"></h3></th>
+        <th rowspan="2">
+            <a th:href="@{/users}">
+                <input type="submit" value="RETURN" style="background-color: gold">
+            </a>
+        </th>
+    </tr>
+    <tr style="background-color: silver">
+        <td><a th:text="${user.getId()}">ID</a></td>
+        <td><a th:text="${user.getName()}">Name</a></td>
+        <td><a th:text="${user.getSurname()}">Surname</a></td>
+        <td><a th:text="${user.getActivity()}">Activity</a></td>
+        <td><a th:text="${user.getCountry()}">Country</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

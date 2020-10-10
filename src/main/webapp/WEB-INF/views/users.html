@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+<table border="1" style="background-color: gold">
+    <tbody>
+    <tr style="background-color: silver">
+        <th colspan="5">
+            <h3>Create New User</h3>
+            <form method="POST" th:action="@{/users}">
+                <label for="name">Name: </label>
+                <input th:name="name" type="text" id="name"/>
+                <br/>
+                <label for="surname">Surname: </label>
+                <input th:name="surname" type="text" id="surname"/>
+                <br/>
+                <label for="activity">Activity: </label>
+                <input th:name="activity" type="text" id="activity"/>
+                <br/>
+                <label for="country">Country: </label>
+                <input th:name="country" type="text" id="country"/>
+                <br/>
+                <input type="submit" value="CREATE!" style="background-color: gold"/>
+            </form>
+        </th>
+    </tr>
+    <tr style="background-color: silver">
+        <th colspan="5">
+            <h3>All Users</h3>
+        </th>
+    </tr>
+    <tr style="background-color: silver">
+        <th><h4 th:text="Name"></h4></th>
+        <th><h4 th:text="Surname"></h4></th>
+        <th><h4>Show</h4></th>
+        <th><h4>Edit</h4></th>
+        <th><h4>Delete</h4></th>
+    </tr>
+    <tr th:each="user : ${users}" style="background-color: silver">
+        <td><a th:text="${user.getName()}">Name</a></td>
+        <td><a th:text="${user.getSurname()}">Surname</a></td>
+        <td>
+            <a th:href="@{/users/{id}(id=${user.getId()})}">
+                <input type="submit" value="SHOW" style="background-color: gold"/>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{/users/edit_user/{id}(id=${user.getId()})}">
+                <input type="submit" value="EDIT" style="background-color: gold"/>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/users/remove_user/' + ${user.id}}">
+                <input type="submit" value="DELETE" style="background-color: gold"/>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
