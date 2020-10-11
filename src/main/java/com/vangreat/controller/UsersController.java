@@ -29,6 +29,12 @@ public class UsersController {
         return "user_page";
     }
 
+    @PostMapping("/{id}")
+    public String editUser(@ModelAttribute("user") User user) {
+        userService.editUser(user);
+        return "user_page";
+    }
+
     @PostMapping()
     public String createUser(@RequestParam("name") String name,
                              @RequestParam("surname") String surname,
@@ -41,18 +47,6 @@ public class UsersController {
     @GetMapping("/remove_user/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
-        return "redirect:/users";
-    }
-
-    @GetMapping("/edit_user/{id}")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", userService.getUser(id));
-        return "edit_user";
-    }
-
-    @PostMapping("/edit_user/{id}")
-    public String editUser(@ModelAttribute("user") User user) {
-        userService.editUser(user);
         return "redirect:/users";
     }
 }
