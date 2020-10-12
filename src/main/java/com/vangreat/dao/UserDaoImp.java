@@ -15,8 +15,8 @@ public class UserDaoImp implements UserDao {
 
     @Override
     @Transactional
-    public void createUser(String name, String surname, String activity, String country) {
-        User user = new User(name, surname, activity, country);
+    public void createUser(String name, String surname, String activity, String email) {
+        User user = new User(name, surname, activity, email);
         entityManager.persist(user);
     }
 

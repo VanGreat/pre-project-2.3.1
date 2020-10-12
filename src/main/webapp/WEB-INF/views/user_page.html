@@ -12,14 +12,14 @@
         <th><h3 th:text="Name"></h3></th>
         <th><h3 th:text="Surame"></h3></th>
         <th><h3 th:text="Activity"></h3></th>
-        <th><h3 th:text="Country"></h3></th>
+        <th><h3 th:text="Email"></h3></th>
     </tr>
     <tr style="background-color: silver">
         <td><a th:text="${user.getId()}">ID</a></td>
         <td><a th:text="${user.getName()}">Name</a></td>
         <td><a th:text="${user.getSurname()}">Surname</a></td>
         <td><a th:text="${user.getActivity()}">Activity</a></td>
-        <td><a th:text="${user.getCountry()}">Country</a></td>
+        <td><a th:text="${user.getEmail()}">Email</a></td>
     </tr>
     <tr style="background-color: silver">
         <form th:method="POST" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
@@ -27,7 +27,7 @@
             <td><input th:field="*{name}" type="text" th:value="${user.getName()}"/></td>
             <td><input th:field="*{surname}" type="text" th:value="${user.getSurname()}"/></td>
             <td><input th:field="*{activity}" type="text" th:value="${user.getActivity()}"/></td>
-            <td><input th:field="*{country}" type="text" th:value="${user.getCountry()}"/></td>
+            <td><input th:field="*{email}" type="text" th:value="${user.getEmail()}"/></td>
         </form>
         <a th:href="@{/users}"><input type="submit" value="RETURN" style="background-color: gold"></a>
     </tr>

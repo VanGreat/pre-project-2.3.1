@@ -3,7 +3,7 @@ package com.vangreat.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users", schema = "pre-project-2.3.1")
+@Table(name = "users", schema = "pre-project-web")
 public class User {
 
     @Id
@@ -19,8 +19,8 @@ public class User {
     @Column(name = "activity")
     private String activity;
 
-    @Column(name = "country")
-    private String country;
+    @Column(name = "email")
+    private String email;
 
     public User() {}
 
@@ -28,7 +28,7 @@ public class User {
         this.name = name;
         this.surname = surname;
         this.activity = activity;
-        this.country = country;
+        this.email = country;
     }
 
     public long getId() {
@@ -63,16 +63,17 @@ public class User {
         this.activity = activity;
     }
 
-    public String getCountry() {
-        return country;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setEmail(String country) {
+        this.email = country;
     }
 
     @Override
     public String toString() {
-        return "User: id = " + id + ", name = " + name + ", surname = " + surname + ", activity = " + activity;
+        return "User: id = " + id + ", name = " + name + ", surname = " + surname
+                + ", activity = " + activity +", email = " + email;
     }
 }

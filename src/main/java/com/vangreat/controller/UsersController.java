@@ -39,8 +39,8 @@ public class UsersController {
     public String createUser(@RequestParam("name") String name,
                              @RequestParam("surname") String surname,
                              @RequestParam("activity") String activity,
-                             @RequestParam("country") String country) {
-        userService.createUser(name, surname, activity, country);
+                             @RequestParam("email") String email) {
+        userService.createUser(name, surname, activity, email);
         return "redirect:/users";
     }
 
